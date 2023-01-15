@@ -11,8 +11,14 @@ export interface Product extends BaseModel {
   // createdAt: Date;
   // updatedAt: Date;
   title: string;
+  image: string;
+  description: string;
   stock: number;
   size?: Sizes;
+  color: string;
+  price: number;
   category: Category
+  isNew: boolean;
+  tags: string[];
 }
 
