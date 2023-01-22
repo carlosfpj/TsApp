@@ -1,5 +1,5 @@
 import { Product } from "./product.model";
-import { CreateProductDto, UpdateProductDto } from "./product.dto";
+import { CreateProductDto, UpdateProductDto, findProductDto } from "./product.dto";
 import { faker } from "@faker-js/faker";
 
 export let products: Product[] = [];
@@ -22,7 +22,8 @@ export const addProduct = (data: CreateProductDto): Product => {
   return newProduct;
 }
 
-export const updateProduct = (id: string, changes: UpdateProductDto): Product => {
+// i can get the type of the parameter by accessing the product interface baseModel id type
+export const updateProduct = (id: Product['id'] , changes: UpdateProductDto): Product => {
   const index = products.findIndex(item => item.id === id);
   const prevData = products[index];
   products[index] = {
@@ -38,4 +39,10 @@ export const deleteProduct = (id: string) => {
 
 export const ReplaceProduct = (id: string, newProduct: Product) => {
   //code
+}
+
+export const findProducts = (dto: findProductDto): Product[] => {
+  //here it is supposed to connect to the database
+  //dto.color = 'blue'; dto is read-only
+  return products
 }

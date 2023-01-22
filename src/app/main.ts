@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { addProduct, products, updateProduct } from "./products/product.service";
+import { addProduct, products, updateProduct, findProducts } from "./products/product.service";
 //se debe traer desde la interface la "category" ?
 // read more about DTO (Data transfer objects)
 
@@ -36,3 +36,11 @@ updateProduct(product.id, {
   stock: 80,
 
 });
+
+
+findProducts({
+  stock: 10,
+  color: 'red',
+  createdAt: new Date(),
+  isNew: true,
+})
