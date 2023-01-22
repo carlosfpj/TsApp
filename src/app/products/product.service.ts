@@ -1,5 +1,5 @@
 import { Product } from "./product.model";
-import { CreateProductDto, UpdateProductDto, findProductDto } from "./product.dto";
+import { CreateProductDto, UpdateProductDto, FindProductDto } from "./product.dto";
 import { faker } from "@faker-js/faker";
 
 export let products: Product[] = [];
@@ -41,8 +41,12 @@ export const ReplaceProduct = (id: string, newProduct: Product) => {
   //code
 }
 
-export const findProducts = (dto: findProductDto): Product[] => {
+export const findProducts = (dto: FindProductDto): Product[] => {
   //here it is supposed to connect to the database
   //dto.color = 'blue'; dto is read-only
+  // dto.tags? = [];
+  //dto.tags?.push();
+  //dto.tags?.pop();
+
   return products
 }

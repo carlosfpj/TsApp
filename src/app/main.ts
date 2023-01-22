@@ -43,4 +43,5 @@ findProducts({
   color: 'red',
   createdAt: new Date(),
   isNew: true,
+  tags: ['as','das','as']
 })
