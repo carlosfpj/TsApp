@@ -1,18 +1,20 @@
 import { faker } from '@faker-js/faker';
-import { addProduct, products } from "./products/product.service";
+import { addProduct, products, updateProduct } from "./products/product.service";
 //se debe traer desde la interface la "category" ?
+// read more about DTO (Data transfer objects)
 
 for (let index = 0; index < 5; index++) {
   addProduct({
+    //id is created at "database".
     // id: faker.datatype.uuid(),
-    description: faker.commerce.productDescription(),
+    title: faker.commerce.productName(),
     image: faker.image.imageUrl(),
+    description: faker.commerce.productDescription(),
     color: faker.commerce.color(),
     size: faker.helpers.arrayElement(['M', 'S', 'XL', 'L']),
     price: parseInt(faker.commerce.price()),
     isNew: faker.datatype.boolean(),
     tags: faker.helpers.arrayElements(),
-    title: faker.commerce.productName(),
     // createdAt: faker.date.recent(),
     // updatedAt: faker.date.recent(),
     stock: faker.datatype.number({ min: 10, max: 100 }),
@@ -28,3 +30,9 @@ for (let index = 0; index < 5; index++) {
 
 console.log(products);
 
+const product = products[0];
+updateProduct(product.id, {
+  title: 'New title',
+  stock: 80,
+
+});
